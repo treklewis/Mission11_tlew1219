@@ -42,6 +42,12 @@ namespace Bookstore
             //allows for session usage
             services.AddDistributedMemoryCache();
             services.AddSession();
+
+            //Call get cart method to get old cart or create new one
+            services.AddScoped<Cart>(x => SessionCart.GetCart(x));
+
+            //sets up http and http accessor relationship
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
