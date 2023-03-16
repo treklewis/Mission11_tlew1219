@@ -35,6 +35,7 @@ namespace Bookstore
             });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
 
             //brings in razor pages
             services.AddRazorPages();
